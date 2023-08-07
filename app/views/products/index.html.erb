@@ -1,0 +1,28 @@
+<h1><%= current_user.user_type %> Products</h1>
+
+<h2> <%= link_to "Add Product", new_product_path if current_user.user_type == "seller" %></h2>
+<table class="table">
+  <thead  class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Category</th>
+      <th scope="col">Company</th>
+      <th scope="col">Description</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @products.each do |prod| %>
+	    <tr>
+	      
+				<th><%= prod.name%></th>
+				<th><%= prod.catogery%></td>
+				<th><%= prod.company%></td>
+				<th><%= prod.description%></td>
+				<th><%= prod.price%></td>
+	    </tr>
+    <%end%>	
+  </tbody>
+</table>
+
+
