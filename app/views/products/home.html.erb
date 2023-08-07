@@ -6,17 +6,21 @@
       <th scope="col">Company</th>
       <th scope="col">Description</th>
       <th scope="col">Price</th>
+    	<th scope="col">Image</th>
     </tr>
   </thead>
   <tbody>
   	<% @products.each do |prod| %>
 	    <tr>
 	      
-				<th><%= prod.name%></th>
-				<th><%= prod.catogery%></td>
-				<th><%= prod.company%></td>
-				<th><%= prod.description%></td>
-				<th><%= prod.price%></td>
+				<td><%= prod.name%></td>
+				<td><%= prod.catogery%></td>
+				<td><%= prod.company%></td>
+				<td><%= prod.description%></td>
+				<td><%= prod.price%></td>
+
+				<td><%= image_tag prod.image , class: "image" %></td>
+
 	    </tr>
     <%end%>	
   </tbody>

@@ -9,6 +9,7 @@
       <th scope="col">Company</th>
       <th scope="col">Description</th>
       <th scope="col">Price</th>
+      <th scope="col">Image</th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +21,8 @@
 				<th><%= prod.company%></td>
 				<th><%= prod.description%></td>
 				<th><%= prod.price%></td>
+				<td><%= image_tag prod.image , class: "image"  %></td>
+
 	    </tr>
     <%end%>	
   </tbody>
