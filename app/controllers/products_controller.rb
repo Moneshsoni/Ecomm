@@ -21,12 +21,30 @@ class ProductsController < ApplicationController
     redirect_to root_path
   end
 
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+        redirect_to products_path, notice: "Product is succefully updated"
+    else
+        render :edit
+    end
+  end
+
+  def destroy
+    @prod = Product.find(params[:id])
+    @prod.destroy
+    redirect_to products_path, notice: "Product is successfully Deleted"
+  end
+
   private
 
 
   def product_params
     params.require(:product).permit(:name, :catogery, :company, :description, :price, :image)
   end
-
-
+  
 end
