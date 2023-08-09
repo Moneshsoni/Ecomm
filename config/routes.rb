@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions'}
   root "products#index"
   resources :products
 
@@ -7,7 +8,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions'}
+  
 
   get 'home', to: 'products#home'
+
+  get 'confirm_email/:token', to: 'users#confirm_email', as: :confirm_email
 end

@@ -1,0 +1,12 @@
+<!-- app/views/user_mailer/confirmation_email.html.erb -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+</head>
+<body>
+  <h1>Welcome to My App!</h1>
+  <p>Please confirm your account by clicking the link below:</p>
+  <a href="<%= confirm_email_url(@user.confirmation_token) %>">Confirm Account</a>
+</body>
+</html>
