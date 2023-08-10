@@ -37,7 +37,6 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
 
@@ -75,7 +74,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     user_name:      'monesh@thoughtwin.com',
-    password:       'ymxaepngcvbqlqom',
+    password:       'klncichfukkqlmfp',
     domain:         'localhost:3000',
     address:       'smtp.thoughtwin.com',
     port:          '587',

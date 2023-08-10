@@ -5,7 +5,6 @@
 </head>
 <body>
   <h1>Welcome to My App!</h1>
-  <%binding.pry%>
   <p>Please confirm your account by clicking the link below:</p>
   <a href="<%= confirm_email_url(@user.confirmation_token) %>">Confirm Your Account</a>
 </body>
