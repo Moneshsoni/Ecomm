@@ -17,6 +17,8 @@ gem "puma", "~> 5.0"
 
 gem "pry"
 
+gem 'letter_opener'
+
 gem "image_processing", ">= 1.2"
 
 gem 'bootstrap', '~> 5.2.2'
