@@ -1,4 +1,7 @@
 ActiveAdmin.register User do
+  actions :index, :edit, :update, :create, :destroy
+
+  menu label: "All Customers"
   permit_params :email, :password, :password_confirmation
 
   index do

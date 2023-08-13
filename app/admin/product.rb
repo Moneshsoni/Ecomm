@@ -1,6 +1,8 @@
 ActiveAdmin.register Product do
   permit_params :name, :user_id, :created_at, :updated_at, :catogery, :company, :description, :price
 
+
+  menu label: "All Products"
   index do
     selectable_column
     id_column
