@@ -76,12 +76,12 @@ Rails.application.configure do
     user_name:      'monesh@thoughtwin.com',
     password:       'klncichfukkqlmfp',
     domain:         'localhost:3000',
-    address:       'smtp.thoughtwin.com',
-    port:          '587',
+    address:        'smtp.gmail.com',
+    port:           '587',
     authentication: :plain,
     enable_starttls_auto: true
   }
 
-  config.action_mailer.delivery_method = :letter_opener
+  # config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
 end

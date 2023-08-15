@@ -6,10 +6,10 @@ class RegistrationsController < Devise::RegistrationsController
   def create
       @user = User.new(user_params)
       if @user.save
-        # UserMailer.confirmation_email(@user).deliver_now
-        UserMailer.with(user: @user).confirmation_email.deliver_now
-        # redirect_to root_path, notice: "User succesfully created!" 
-        # sign_in @user
+        UserMailer.confirmation_email(@user).deliver_now
+        # UserMailer.with(user: @user).confirmation_email.deliver_now
+        redirect_to root_path, notice: "User succesfully created!" 
+        sign_in @user
       else
         render :new
       end
