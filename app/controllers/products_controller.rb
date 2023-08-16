@@ -40,6 +40,10 @@ class ProductsController < ApplicationController
     redirect_to products_path, notice: "Product is successfully Deleted"
   end
 
+
+  def welcome
+  end
+
   private
 
 

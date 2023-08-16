@@ -1,11 +1,7 @@
-<h1><%= current_user.user_type %> Products</h1>
+<center class="text-danger"><h1> Products</h1></center>
 
-<ul>
-	
-	<li>
-		<%= link_to "Add New Product", new_product_path if current_user.user_type == "seller" %>
-	</li>
-</ul>
+
+	<%= link_to "Add New Product", new_product_path if current_user.user_type == "seller" %>
 
 
 <div class="row">
