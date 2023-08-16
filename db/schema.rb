@@ -96,6 +96,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_14_064033) do
     t.datetime "updated_at", null: false
     t.boolean "approve", default: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.boolean "approved", default: false, null: false
+    t.index ["approved"], name: "index_users_on_approved"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
