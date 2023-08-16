@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
 
   def send_confirmation_mail
-    UserMailer.with(user: @user).confirmation_email.deliver_now
+    UserMailer.confirmation_email(self).deliver_now
   end
 
 

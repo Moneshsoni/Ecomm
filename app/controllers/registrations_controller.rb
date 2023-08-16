@@ -8,7 +8,7 @@ class RegistrationsController < Devise::RegistrationsController
       if @user.save
         UserMailer.confirmation_email(@user).deliver_now
         # UserMailer.with(user: @user).confirmation_email.deliver_now
-        redirect_to welcome_path #, notice: "User succesfully created!" 
+        redirect_to root_path , notice: "User succesfully created!" 
         sign_in @user
       else
         render :new
@@ -30,9 +30,9 @@ class RegistrationsController < Devise::RegistrationsController
   def confirm_email
     user = User.find_by(confirmation_token: params[:token])
     if user
-      user.update(confirmed: true, confirmation_token: nil)
+      user.update(confirmation_token: nil)
       flash[:notice] = 'Your account has been confirmed. You can now log in.'
-      redirect_to login_path
+      redirect_to welcome_path
     else
       flash[:alert] = 'Invalid confirmation token.'
       redirect_to root_path

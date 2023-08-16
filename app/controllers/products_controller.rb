@@ -42,7 +42,6 @@ class ProductsController < ApplicationController
 
 
   def welcome
-    binding.pry
   end
 
   private
