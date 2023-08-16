@@ -2,7 +2,7 @@ ActiveAdmin.register User do
   actions :index, :edit, :update, :create, :destroy
 
   menu label: "All Customers"
-  permit_params :email, :password, :password_confirmation
+  permit_params :email, :password, :password_confirmation, :user_type, :approve
 
   index do
     selectable_column
@@ -12,6 +12,7 @@ ActiveAdmin.register User do
     column :sign_in_count
     column :created_at
     column :user_type
+    column :approve
     actions
   end
 
@@ -20,6 +21,7 @@ ActiveAdmin.register User do
   filter :sign_in_count
   filter :created_at
   filter :user_type
+  filter :approve
 
   form do |f|
     f.inputs do
@@ -27,6 +29,7 @@ ActiveAdmin.register User do
       f.input :password
       f.input :password_confirmation
       f.input :user_type
+      f.input :approve
     end
     f.actions
   end
