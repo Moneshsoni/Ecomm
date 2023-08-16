@@ -8,7 +8,7 @@ class RegistrationsController < Devise::RegistrationsController
       if @user.save
         UserMailer.confirmation_email(@user).deliver_now
         # UserMailer.with(user: @user).confirmation_email.deliver_now
-        redirect_to root_path, notice: "User succesfully created!" 
+        redirect_to welcome_path #, notice: "User succesfully created!" 
         sign_in @user
       else
         render :new
@@ -38,6 +38,7 @@ class RegistrationsController < Devise::RegistrationsController
       redirect_to root_path
     end
   end
+
 
   private
   def user_params

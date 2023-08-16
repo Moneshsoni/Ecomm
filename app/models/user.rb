@@ -6,9 +6,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable, :trackable
 
-  private
+  after_create :send_confirmation_mail
+
+
+  def send_confirmation_mail
+    UserMailer.with(user: @user).confirmation_email.deliver_now
+  end
+
 
   def generate_confirmation_token
-    self.confirmation_token = SecureRandom.hex(16)
+    self.confirmation_token = SecureRandom.urlsafe_base64.to_s
   end
 end
