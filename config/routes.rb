@@ -1,3 +1,4 @@
+
 Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions'}
@@ -9,10 +10,13 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  root "products#index"
+  root "products#home"
 
   resources :products
 
+  resources :products do
+    resources :addcarts
+  end
 
   get 'home', to: 'products#home'
 

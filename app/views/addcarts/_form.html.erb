@@ -1,0 +1,10 @@
+<%#binding.pry%>
+<%= form_with model: [@product, @product.addcarts.build ] do |form| %>
+  <div>
+    <%= form.label :quantity%><br>
+    <%= form.number_field :quantity%><br>
+  </div>
+  
+  <%= form.submit %>
+<% end %>
+

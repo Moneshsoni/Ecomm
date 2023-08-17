@@ -6,6 +6,7 @@
 
 <div class="row">
 <% @products.each do |prod| %>
+<%#binding.pry%>
   <div class="col-12 col-lg-4">
       <div class="card text-center text-white" style="background-color:#ffa82e00;">
         <div class="card photo" class="card-img-top">
@@ -22,8 +23,6 @@
 			        turbo_confirm: "Are you sure?" 
 			      } if current_user.user_type == "seller"%> </button>|
 			      
-
-
           </div>
         </div>  
       </div>

@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  
   def index
     @products = if current_user.user_type == "seller"
       current_user.products
@@ -11,7 +12,6 @@ class ProductsController < ApplicationController
     @product = Product.new
   end
 
-
   def home
     @products = Product.all
   end
@@ -20,6 +20,8 @@ class ProductsController < ApplicationController
     @product = current_user.products.create(product_params)
     redirect_to root_path
   end
+
+
 
   def edit
     @product = Product.find(params[:id])
@@ -43,6 +45,11 @@ class ProductsController < ApplicationController
 
   def welcome
   end
+
+  def show
+    @product = Product.find(params[:id])
+  end
+
 
   private
 
