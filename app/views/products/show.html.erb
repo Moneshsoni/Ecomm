@@ -1,0 +1,12 @@
+<strong><h1><%= notice%></h1></strong>
+<center><h1>Product Details</h1></center>
+ <center><%= image_tag @product.image, height: 350, width: 350, crop: :fit if @product.image.attached? %></center>
+    <center><h5 class="text-primary"><%=  @product.name %></h5></center>
+    <center><p class="text-primary"><%= @product.catogery %></p></center>
+     <center><p class="text-primary"><%= @product.company %></p></center>
+     <center><p class="text-primary"><%= @product.description %></p></center>
+     <center><p class="text-primary">Price: $<%= @product.price %></p></center>
+       <center><button type="button" class="text-primary"><%= link_to "Add To Cart",new_product_addcart_path(@product.id)%></button>
+       	 <button type="button" class="text-primary"><%= link_to "Buy now", buy_path %></button>
+       </center><br>
+       

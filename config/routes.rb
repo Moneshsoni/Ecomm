@@ -20,5 +20,7 @@ Rails.application.routes.draw do
 
   get 'home', to: 'products#home'
 
+  get 'buy', to: 'products#buy'
+
   get 'welcome', to: 'products#welcome'
 end
