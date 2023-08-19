@@ -80,8 +80,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_19_045155) do
     t.string "surname"
     t.string "city"
     t.string "email"
-    t.boolean "approve", default: false
-    t.boolean "boolean", default: false
+    t.boolean "approve"
     t.string "requirement"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

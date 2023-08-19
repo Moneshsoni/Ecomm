@@ -5,7 +5,7 @@ class CreateContacts < ActiveRecord::Migration[7.0]
       t.string :surname
       t.string :city
       t.string :email
-      t.boolean :approve, :boolean, default: false
+      t.boolean :approve
       t.string :requirement
 
       t.timestamps
