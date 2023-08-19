@@ -22,5 +22,7 @@ Rails.application.routes.draw do
 
   get 'buy', to: 'products#buy'
 
+  get 'about', to: 'products#about'
+ 
   get 'welcome', to: 'products#welcome'
 end
