@@ -1,6 +1,6 @@
 
 Rails.application.routes.draw do
-
+  
   devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions'}
  
   devise_scope :user do
@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   root "products#home"
 
   resources :products
+
+  resources :contacts
 
   resources :products do
     resources :addcarts

@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
   def home
     @products = Product.all
   end
-
+  
   def create
     @product = current_user.products.create(product_params)
     redirect_to root_path

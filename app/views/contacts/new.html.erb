@@ -1,0 +1,33 @@
+<%= form_with model: @contact do |form| %>
+
+ <center><div>
+  <div>
+    <%= form.label :name%><br>
+    <%= form.text_field :name%><br>
+  </div>
+
+  <div>
+    <%= form.label :surname%><br>
+    <%= form.text_field :surname%><br>
+  </div>
+
+  <div>
+    <%= form.label :email%><br>
+    <%= form.text_field :email%><br>
+  </div>
+
+  <div>
+    <%= form.label :city%><br>
+    <%= form.text_field :city%><br>
+  </div>
+
+  <div>
+    <%= form.label :requirement%><br>
+    <%= form.text_area  :requirement%>
+  </div>
+  
+ 
+  <button type="button" class="btn btn-outline-secondary"><%= form.submit 'Contact Us..' %></button>
+
+</div></center>
+<% end %>
