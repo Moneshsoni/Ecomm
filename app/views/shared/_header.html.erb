@@ -16,7 +16,19 @@
           </li>
 
           <li class="nav-item">
-           <%= link_to "Product", products_path, class: "navbar-brand" %>
+           <%if user_signed_in?%> 
+             <%if current_user.user_type=="seller"%> 
+              <%= link_to "Product", products_path, class: "navbar-brand" %>
+             <%end%>
+           <%end%>
+          </li>
+
+          <li class="nav-item">
+            <%if user_signed_in?%>
+              <%if current_user.user_type=="customer"%> 
+               <%= link_to "Your Cards", allcard_path, class: "navbar-brand" %>
+              <%end%>
+            <%end%>
           </li>
 
           

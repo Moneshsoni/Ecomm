@@ -20,11 +20,17 @@ Rails.application.routes.draw do
     resources :addcarts
   end
 
+  get 'add_to_cart/:id', to: 'addcarts#add_to_cart', as: 'add_to_cart'
+
+  get 'allcard', to: "addcarts#allcard"
+  
   get 'home', to: 'products#home'
 
   get 'buy', to: 'products#buy'
 
   get 'about', to: 'products#about'
+
+
  
   get 'welcome', to: 'products#welcome'
 end

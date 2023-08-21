@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :products
+  
   before_create :generate_confirmation_token
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

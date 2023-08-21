@@ -1,6 +1,20 @@
 class AddcartsController < ApplicationController
   
+  def index
+    @addcarts = Addcart.all
+  end
+
+  def allcard
+    @addcarts = Addcart.all
+  end
+
   def show
+  end
+
+  def add_to_cart
+    @product = Product.find(params[:id])
+    @addcart = @product.addcarts.create
+    redirect_to product_addcart_path(params[:id]), notice: 'Product added to cart.'
   end
 
   def new
@@ -8,17 +22,13 @@ class AddcartsController < ApplicationController
     @addcart = Addcart.new
   end
 
-
   def create
-    binding.pry
-    @product = Product.find(params[:product_id])
-    @addcart = @product.addcarts.create(addcart_params)
-    redirect_to product_path(@product)
+    @product = Product.find(params[:id])
+    @addcart = @product.addcarts.create()
+
+    redirect_to product_addcarts_path(@product), notice: 'Product added to cart.'
   end
 
-
-  def show
-  end
   private
     def addcart_params
       params.require(:addcart).permit(:quantity, :total_price)
