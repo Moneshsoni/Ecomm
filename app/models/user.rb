@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :products
+  has_many :addcarts
   
   before_create :generate_confirmation_token
   # Include default devise modules. Others available are:

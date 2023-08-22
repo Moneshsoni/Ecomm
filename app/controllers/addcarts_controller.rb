@@ -5,7 +5,7 @@ class AddcartsController < ApplicationController
   end
 
   def allcard
-    @addcarts = Addcart.all
+    @addcarts = current_user.addcarts
   end
 
   def show
@@ -13,8 +13,8 @@ class AddcartsController < ApplicationController
 
   def add_to_cart
     @product = Product.find(params[:id])
-    @addcart = @product.addcarts.create
-    redirect_to product_addcart_path(params[:id]), notice: 'Product added to cart.'
+    @addcart = current_user.addcarts.create(total_price:@product.price)
+    redirect_to products_path, notice: 'Product added to cart Please see on your all cards page.'
   end
 
   def new

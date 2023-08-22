@@ -1,6 +1,5 @@
 class Product < ApplicationRecord
 	belongs_to :user
-	has_many :addcarts
 	has_one_attached :image
 	
 	def self.ransackable_attributes(auth_object = nil)
