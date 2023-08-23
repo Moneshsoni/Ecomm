@@ -1,8 +1,20 @@
 
 <%@addcarts.each do |addcart|%>
+	
+	<div class="d-flex">
 
-	<p>Quantity: <%= addcart.quantity %></p>
-	<p>Price: <%= addcart.total_price %></p>
+		<p claas="mr-2">Quantity:</p>
+		 
+		<%= button_to "+", add_quantity_path(addcart), method: :patch %>
+		<p class="mx-3"><%= addcart.quantity %></p>
+		<%= button_to "-",remove_quantity_path(addcart), method: :patch %>
+	</div>
+	<%#binding.pry%>
+	<p>Total Price: <%= (addcart.quantity*addcart.total_price) %></p>
+	
 
+	
+	
+	
 
 <%end%>

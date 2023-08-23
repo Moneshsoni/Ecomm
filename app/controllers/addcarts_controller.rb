@@ -11,6 +11,18 @@ class AddcartsController < ApplicationController
   def show
   end
 
+  def add_quantity
+    @add_cart = Addcart.find(params[:id])
+    @add_cart.update(quantity: @add_cart.quantity+1)
+    redirect_to allcard_path
+  end
+
+  def remove_quantity
+    @add_cart = Addcart.find(params[:id])
+    @add_cart.update(quantity: @add_cart.quantity-1)
+    redirect_to allcard_path
+  end
+
   def add_to_cart
     @product = Product.find(params[:id])
     @addcart = current_user.addcarts.create(total_price:@product.price)

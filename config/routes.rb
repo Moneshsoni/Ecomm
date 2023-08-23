@@ -22,6 +22,10 @@ Rails.application.routes.draw do
 
   get 'add_to_cart/:id', to: 'addcarts#add_to_cart', as: 'add_to_cart'
 
+  patch 'add_quantity/:id', to: 'addcarts#add_quantity', as: 'add_quantity'
+
+  patch 'remove_quantity/:id', to: 'addcarts#remove_quantity', as: 'remove_quantity'
+
   get 'allcard', to: "addcarts#allcard"
   
   get 'home', to: 'products#home'
