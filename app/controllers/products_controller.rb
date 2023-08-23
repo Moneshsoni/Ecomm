@@ -56,6 +56,12 @@ class ProductsController < ApplicationController
   def about
   end
 
+  def like
+    @product = Product.all.find(params[:id])
+    Like.create(user_id: current_user.id, product_id: @product.id)
+    redirect_to product_path(@product)
+  end
+
   private
 
 

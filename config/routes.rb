@@ -34,6 +34,8 @@ Rails.application.routes.draw do
 
   get 'about', to: 'products#about'
 
+  put '/product/:id/like', to: 'products#like', as: 'like'
+
 
  
   get 'welcome', to: 'products#welcome'

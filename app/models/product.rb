@@ -1,7 +1,12 @@
 class Product < ApplicationRecord
 	belongs_to :user
 	has_one_attached :image
+	has_many :likes
 	
+	def liked?(user)
+	  !!self.likes.find{|like| like.user_id == user.id}
+	end
+
 	def self.ransackable_attributes(auth_object = nil)
     	["catogery", "company", "created_at", "description", "id", "name", "price", "updated_at", "user_id"]
   	end

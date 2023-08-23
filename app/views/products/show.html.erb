@@ -10,3 +10,12 @@
        	 <button type="button" class="text-primary"><%= link_to "Buy now", buy_path %></button>
        </center><br>
        
+
+<center><%if user_signed_in?%>
+  <%if @product.liked?(current_user)%>
+    <%= button_to "Like", like_path(@product), method: 'put',disabled: true%>
+  <%else%>
+    <%= button_to "Like",like_path(@product),method: 'put'%>
+  <%end%>
+<%end%>
+</center>
