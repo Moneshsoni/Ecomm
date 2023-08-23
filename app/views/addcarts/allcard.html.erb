@@ -4,17 +4,16 @@
 	<div class="d-flex">
 
 		<p claas="mr-2">Quantity:</p>
-		 
+		<%#binding.pry%>
 		<%= button_to "+", add_quantity_path(addcart), method: :patch %>
 		<p class="mx-3"><%= addcart.quantity %></p>
-		<%= button_to "-",remove_quantity_path(addcart), method: :patch %>
+		<%if addcart.quantity>1%>
+			<%= button_to "-",remove_quantity_path(addcart), method: :patch %>
+		<%end%>
 	</div>
 	<%#binding.pry%>
-	<p>Total Price: <%= (addcart.quantity*addcart.total_price) %></p>
-	
-
-	
-	
-	
-
+<%end%>
+<%if @addcarts.present?%>
+	<%a=Addcart.pluck(:total_price).sum%>
+	<p>Total Price: <%= a %></p>
 <%end%>

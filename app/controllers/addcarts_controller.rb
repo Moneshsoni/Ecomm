@@ -13,20 +13,26 @@ class AddcartsController < ApplicationController
 
   def add_quantity
     @add_cart = Addcart.find(params[:id])
-    @add_cart.update(quantity: @add_cart.quantity+1)
+    price = @add_cart.total_price
+    @add_cart.update(quantity: @add_cart.quantity+1, total_price: @add_cart.total_price+price)
+    
     redirect_to allcard_path
   end
 
-  def remove_quantity
+  def remove_quantity 
     @add_cart = Addcart.find(params[:id])
-    @add_cart.update(quantity: @add_cart.quantity-1)
-    redirect_to allcard_path
+    if @add_cart.quantity>1
+      @add_cart.update(quantity: @add_cart.quantity-1, total_price: @add_cart.total_price-@add_cart.initial_product_price)
+      redirect_to allcard_path
+     else
+      redirect_to allcard_path, notice: "Item not should be less than 1!"
+    end
   end
 
   def add_to_cart
     @product = Product.find(params[:id])
-    @addcart = current_user.addcarts.create(total_price:@product.price)
-    redirect_to products_path, notice: 'Product added to cart Please see on your all cards page.'
+    @addcart = current_user.addcarts.create(total_price:@product.price, initial_product_price:@product.price)
+    redirect_to allcard_path, notice: 'Product added to cart Please see on your all cards page.'
   end
 
   def new
@@ -43,6 +49,7 @@ class AddcartsController < ApplicationController
 
   private
     def addcart_params
-      params.require(:addcart).permit(:quantity, :total_price)
+      params.require(:addcart).permit(:quantity, :total_price, :initial_product_price)
     end
 end
+
