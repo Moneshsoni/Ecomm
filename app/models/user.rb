@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :products
   has_many :addcarts
+  has_many :credit_cards, dependent: :destroy
   
   before_create :generate_confirmation_token
   # Include default devise modules. Others available are:
@@ -9,6 +10,12 @@ class User < ApplicationRecord
 
   after_create :send_confirmation_mail
 
+  after_commit :assign_customer_id, on: :create
+
+  def assign_customer_id
+    customer = Stripe::Customer.create(email: email)
+    self.customer_id = customer.id
+  end
 
   def send_confirmation_mail
     UserMailer.confirmation_email(self).deliver_now

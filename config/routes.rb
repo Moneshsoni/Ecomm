@@ -1,5 +1,6 @@
 
 Rails.application.routes.draw do
+  resources :credit_cards
   
   devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions'}
  
@@ -19,6 +20,12 @@ Rails.application.routes.draw do
   resources :users do
     resources :addcarts
   end
+    
+  resources :credit_cards
+
+  resources :charges
+ 
+  mount StripeEvent::Engine, at: '/payments'
 
   get 'add_to_cart/:id', to: 'addcarts#add_to_cart', as: 'add_to_cart'
 

@@ -2,7 +2,13 @@ class Product < ApplicationRecord
 	belongs_to :user
 	has_one_attached :image
 	has_many :likes
+	validates :price, presence: true, numericality: { greater_than: 0 }
 	
+
+	def price_in_cents
+    	(price * 100).to_i
+ 	end
+
 	def liked?(user)
 	  !!self.likes.find{|like| like.user_id == user.id}
 	end

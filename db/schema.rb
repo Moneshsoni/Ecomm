@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_23_133246) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_26_105048) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -87,6 +87,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_133246) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "credit_cards", force: :cascade do |t|
+    t.string "digits"
+    t.integer "month"
+    t.integer "year"
+    t.integer "cvc"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_credit_cards_on_user_id"
+  end
+
   create_table "likes", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "product_id", null: false
@@ -124,6 +135,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_133246) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "approve", default: false
+    t.integer "customer_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -132,4 +144,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_133246) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "addcarts", "users"
+  add_foreign_key "credit_cards", "users"
 end
