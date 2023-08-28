@@ -1,4 +1,6 @@
 <%= form_for current_user.credit_cards.new, url: charges_path do |f| %>
+ 
+  
   <%= hidden_field_tag :product_id, product.id %>
   <%= render 'shared/form_errors', f: @card if @card.present? %>
  
@@ -7,5 +9,5 @@
   <%= f.text_field :year, placeholder: 'Expired year'  %>
   <%= f.text_field :cvc, placeholder: 'CVC'  %>
  
-  <%= f.button :submit, data: { 'disable-with' => 'Please wait ...' }  %>
+  <%= f.button :submit%>
 <% end %>

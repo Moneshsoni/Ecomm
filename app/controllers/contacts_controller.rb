@@ -9,9 +9,10 @@ class ContactsController < ApplicationController
   end
 
   def create
+    binding.pry
     @contact = Contact.new(contact_params)
     if @contact.save
-      redirect_to root_path, notice: "Your message send to the Ecommerce!"
+      redirect_to root_path, notice: "Your message send to the Ecommerce! Admin"
     else
       render :new
     end

@@ -6,7 +6,15 @@ class CreditCardService
  
   def create_credit_card
     binding.pry
-    customer_id = @user.id
+    customer = Stripe::Customer.create({
+      email: current_user.email,
+      description: "Customer for subscription",
+      payment_method: params[:payment_method],
+      invoice_settings: {
+        default_payment_method: params[:payment_method] 
+      } 
+    })
+    # customer_id = @user.id
     customer = Stripe::Customer.retrieve(customer_id)
     customer.sources.create(source: generate_token).id
   end

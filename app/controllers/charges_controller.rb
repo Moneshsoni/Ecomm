@@ -3,6 +3,7 @@ class ChargesController < ApplicationController
   before_action :find_product
   
   def create
+    binding.pry
     stripe_card_id =
       if params[:credit_card].present?
         CreditCardService.new(current_user.id, card_params).create_credit_card
