@@ -21,13 +21,9 @@ Rails.application.routes.draw do
     resources :addcarts
   end
     
-  resources :credit_cards
+  resources :checkout, only: [:create]
 
-  resources :charges
- 
-  mount StripeEvent::Engine, at: '/payments'
-
-  get 'add_to_cart/:id', to: 'addcarts#add_to_cart', as: 'add_to_cart'
+  post "checkout/create", to: "checkout#create", format: :js
 
   patch 'add_quantity/:id', to: 'addcarts#add_quantity', as: 'add_quantity'
 

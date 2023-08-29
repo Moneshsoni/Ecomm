@@ -6,15 +6,6 @@
      <center><p class="text-primary"><%= @product.company %></p></center>
      <center><p class="text-primary"><%= @product.description %></p></center>
      <center><p class="text-primary">Price: $ <%= number_to_currency(@product.price) %></p></center>
-       <center><button type="button" class="text-primary"><%= link_to 'Add to Cart', add_to_cart_path(@product), method: :post%></button>
-       	 <button type="button" class="text-primary"><%= link_to "Buy now", buy_path %></button>
-       </center><br>
-      <%= render 'shared/card_and_charge_form', product: @product %>
- 
-      <% if current_user.credit_cards.reject{ |card| card.new_record? }.any? %>
-        <%= render 'shared/charge_form', product: @product %>
-      <% end %>
-       
 
 <center><%if user_signed_in?%>
   <%if @product.liked?(current_user)%>
