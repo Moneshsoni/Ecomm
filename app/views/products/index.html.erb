@@ -16,14 +16,17 @@
             <p class="text-primary"><%= prod.catogery %></p>
             <p class="text-primary"><%= prod.company %></p>
             <p class="text-primary"><%= prod.description %></p>
-            <p class="text-primary">Price: $<%= prod.price %></p>
+            <p class="text-primary">Price: <%= number_to_currency(prod.price) %></p>
             <%= button_to "Buy now!", checkout_create_path,method: :post, data: {turbo: false}, params: {id: prod.id} %>
-            <button type="button" class="text-success"><%= link_to "Update Product", edit_product_path(prod) if current_user.user_type == "seller" %></button>
-            <button type="button" class="text-danger"><%= link_to "Destroy", product_path(prod), data: {
-			        turbo_method: :delete,
-			        turbo_confirm: "Are you sure?" 
-			      } if current_user.user_type == "seller"%> </button>|
-			      
+
+            <%if current_user == "seller"%>
+              <button type="button" class="text-success"><%= link_to "Update Product", edit_product_path(prod) if current_user.user_type == "seller" %></button>
+              <button type="button" class="text-danger"><%= link_to "Destroy", product_path(prod), data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure?" 
+              } if current_user.user_type == "seller"%> </button>|
+            <%end%>
+              
           </div>
         </div>  
       </div>

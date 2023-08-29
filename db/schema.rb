@@ -114,7 +114,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_151202) do
     t.string "company"
     t.string "description"
     t.integer "price"
-    t.integer "sales_count"
+    t.integer "sales_count", default: 0
   end
 
   create_table "tests", force: :cascade do |t|

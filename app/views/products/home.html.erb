@@ -12,8 +12,9 @@
             <p class="text-primary"><%= prod.company %></p>
             <p class="text-primary"><%= prod.description %></p>
             <p class="text-primary">Price: $<%= prod.price %></p>
+            <%= button_to "Buy now!", checkout_create_path,method: :post, data: {turbo: false}, params: {id: prod.id} %>
               <!-- <button type="button" class="text-primary"><%#= link_to "Add To Cart",new_product_addcart_path(prod.id)%></button> -->
-        
+    
           
           </div>
         </div>  
