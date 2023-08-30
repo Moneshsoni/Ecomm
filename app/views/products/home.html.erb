@@ -1,4 +1,9 @@
 <div class="row">
+<%if params[:success]%>
+  <div class="alert alert-success mb-5" role = "alert">
+    Thanks for your order
+  </div>
+<%end%>
 <% @products.each do |prod| %>
   
   <div class="col-12 col-lg-4">

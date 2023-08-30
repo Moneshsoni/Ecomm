@@ -1,5 +1,9 @@
 <center class="text-danger"><h1> Products</h1></center>
-
+<%if params[:success]%>
+  <div class="alert alert-success mb-5" role = "alert">
+    Thanks for your order
+  </div>
+<%end%>
 
 	<%= link_to "Add New Product", new_product_path if current_user.user_type == "seller" %>
 
@@ -17,7 +21,7 @@
             <p class="text-primary"><%= prod.company %></p>
             <p class="text-primary"><%= prod.description %></p>
             <p class="text-primary">Price: <%= number_to_currency(prod.price) %></p>
-            <%= button_to "Buy now!", checkout_create_path,method: :post, data: {turbo: false}, params: {id: prod.id} %>
+            <%= button_to "Buy now", checkout_create_path,method: :post, data: {turbo: false}, params: {id: prod.id} %>
 
             <%if current_user == "seller"%>
               <button type="button" class="text-success"><%= link_to "Update Product", edit_product_path(prod) if current_user.user_type == "seller" %></button>
