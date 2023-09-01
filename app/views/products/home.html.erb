@@ -1,15 +1,12 @@
-
-<%= search_form_for @q do |form| %>
-  
+<%= search_form_for @q do |form| %> 
   <div class="form-group">
     <%#= form.label :product%>
-    <%= form.text_field :name_cont, class: "form-control"%><br>
+    <center><%= form.text_field :name_cont, {:style => "width: 200px"} %>
+      <%= form.submit class: "btn btn-primary btn-lg" %> </center>
   </div>
-
-  <div class="form-group">
-    <%= form.submit class: "btn btn-primary btn-lg"%> 
-  </div>
+  <br>
 <%end%>
+
 <div class="row">
 <%if params[:success]%>
   <div class="alert alert-success mb-5" role = "alert">
