@@ -341,6 +341,7 @@ DEPENDENCIES
   importmap-rails
   inherited_resources
   jbuilder
+  kaminari
   letter_opener
   pry
   puma (~> 5.0)

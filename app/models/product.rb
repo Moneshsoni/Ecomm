@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+	paginates_per 3
+	
 	belongs_to :user
 	has_one_attached :image
 	has_many :likes
@@ -23,4 +25,6 @@ class Product < ApplicationRecord
 	    cart_item.quantity += 1
 	    cart_item.save
   	end
+
+
 end

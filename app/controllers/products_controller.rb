@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
     @products = if current_user.user_type == "seller"
       current_user.products
     else
-      Product.all
+      Product.all.page params[:page]
     end
   end
 
@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
   end
 
   def home
-    @products = Product.all
+    @products = Product.all.page params[:page]
   end
   
   def create
