@@ -26,5 +26,9 @@ class Product < ApplicationRecord
 	    cart_item.save
   	end
 
+  	def self.ransackable_associations(auth_object = nil)
+    	["image_attachment", "image_blob", "likes", "user"]
+  	end
+
 
 end
