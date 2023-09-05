@@ -4,7 +4,7 @@ class RegistrationsController < Devise::RegistrationsController
     @user = User.new
   end
 
-  def create
+  def create 
       @user = User.new(user_params)
       if @user.save
         UserMailer.confirmation_email(@user).deliver_now

@@ -5,7 +5,6 @@ class SessionsController < Devise::SessionsController
   end
 
   def create
-    
     @user = User.find_by_email(params[:user][:email])
     if @user.approve?
       if @user != nil
