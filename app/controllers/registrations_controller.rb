@@ -5,7 +5,9 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def create 
+      # binding.pry
       @user = User.new(user_params)
+      @user.skip_confirmation!
       if @user.save
         UserMailer.confirmation_email(@user).deliver_now
         # UserMailer.with(user: @user).confirmation_email.deliver_now

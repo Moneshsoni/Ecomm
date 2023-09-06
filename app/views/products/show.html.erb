@@ -1,14 +1,8 @@
 <strong><h1><%= notice%></h1></strong>
 <center><h1>Product Details</h1></center>
- <center>
- <%binding.pry%>
- <% if @product.images.attached? %>
-    <% @product.images.each do |image| %>
-      <%= image_tag(image) %>
-    <% end %>
-<% else %>
-  <p>No images uploaded.</p>
-<% end %>
+  <% @product.images.each do |image| %>
+    <%= image_tag(url_for(image), class: 'some-class',height: 350, width: 350) %>
+  <% end %>
  
  
  <%#= image_tag @product.image, height: 350, width: 350, crop: :fit if @product.image.attached? %></center>

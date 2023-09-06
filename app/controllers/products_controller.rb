@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
   end
   
   def create
-    binding.pry
+    # binding.pry
     @product = current_user.products.create(product_params)
     redirect_to root_path
   end
@@ -69,7 +69,7 @@ class ProductsController < ApplicationController
 
 
   def product_params
-    params.require(:product).permit(:name, :catogery, :company, :description, :price, image: {})
+    params.require(:product).permit(:name, :catogery, :company, :description, :price, images: [])
   end
   
 end

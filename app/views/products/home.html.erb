@@ -20,7 +20,7 @@
     <a target="_blank" href="<%= product_path(prod.id) %>">
       <div class="card text-center text-white" style="background-color:#ffa82e00;">
         <div class="card photo" class="card-img-top">
-          <%= image_tag prod.images, height: 350, width: 350, crop: :fit if prod.images.attached? %>
+          <%= image_tag prod.images[0], height: 350, width: 350, crop: :fit if prod.images.attached? %>
           <div class="card-body">
             <h5 class="text-primary"><%=  prod.name %></h5>
             <p class="text-primary"><%= prod.catogery %></p>
