@@ -1,8 +1,7 @@
 class Product < ApplicationRecord
 	paginates_per 3
-	
 	belongs_to :user
-	has_one_attached :image
+	has_many_attached :images
 	has_many :likes
 	validates :price, presence: true, numericality: { greater_than: 0 }
 	

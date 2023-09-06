@@ -1,6 +1,18 @@
 <strong><h1><%= notice%></h1></strong>
 <center><h1>Product Details</h1></center>
- <center><%= image_tag @product.image, height: 350, width: 350, crop: :fit if @product.image.attached? %></center>
+ <center>
+ <%binding.pry%>
+ <% if @product.images.attached? %>
+    <% @product.images.each do |image| %>
+      <%= image_tag(image) %>
+    <% end %>
+<% else %>
+  <p>No images uploaded.</p>
+<% end %>
+ 
+ 
+ <%#= image_tag @product.image, height: 350, width: 350, crop: :fit if @product.image.attached? %></center>
+
     <center><h5 class="text-primary"><%=  @product.name %></h5></center>
     <center><p class="text-primary"><%= @product.catogery %></p></center>
      <center><p class="text-primary"><%= @product.company %></p></center>
