@@ -32,4 +32,8 @@
   </div>
 <% end %>
 
+
+<div>
+  <%= button_to  'Login with Google', user_google_oauth2_omniauth_authorize_path, method: :post, :data => {turbo: "false"} %>
+</div>
 <%= render "devise/shared/links" %>

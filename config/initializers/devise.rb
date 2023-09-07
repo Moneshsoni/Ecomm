@@ -26,6 +26,8 @@ Devise.setup do |config|
   # with default "from" parameter.
   config.mailer_sender = 'monesh@thoughtwin.com'
 
+  config.omniauth :google_oauth2, '216973335281-9i5i4jrnnb46a4586eu5lkg2eiecc3it.apps.googleusercontent.com', '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'
+
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 

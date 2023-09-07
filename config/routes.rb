@@ -2,7 +2,7 @@
 Rails.application.routes.draw do
   resources :credit_cards
   
-  devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions'}
+  devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions',omniauth_callbacks: 'users/omniauth_callbacks'}
  
   devise_scope :user do
     get '/confirm_email/:token', to: 'registrations#confirm_email', as: 'confirm_email'
