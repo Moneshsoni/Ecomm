@@ -358,7 +358,7 @@ DEPENDENCIES
   rspec-rails (~> 5.0.0)
   sassc-rails
   selenium-webdriver
-  sidekiq (< 8)
+  sidekiq
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails

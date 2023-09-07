@@ -105,4 +105,4 @@ group :development, :test do
 end
 
 
-gem 'sidekiq', '< 8'
+gem 'sidekiq'
