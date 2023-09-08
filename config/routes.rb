@@ -1,5 +1,6 @@
 
 Rails.application.routes.draw do
+  get 'companies/index'
   resources :credit_cards
   
   devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions',omniauth_callbacks: 'users/omniauth_callbacks'}
@@ -16,6 +17,8 @@ Rails.application.routes.draw do
   resources :products
 
   resources :contacts
+
+  resources :companies
 
   resources :users do
     resources :addcarts

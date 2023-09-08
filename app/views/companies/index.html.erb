@@ -1,0 +1,14 @@
+<%if @companies.present?%>
+	<%@companies.each do |companie|%>	
+		<%= link_to companie.name, company_path(companie.id) %><br>
+	<%end%>
+<%else%>
+	<h1>
+		Companie not Registed Yet...
+	</h1>
+<%end%>
+<hr>
+<div>
+	<h3><%= link_to "Add companie" ,new_company_path%></h3>
+</div>
+<br>
